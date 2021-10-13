@@ -1,0 +1,253 @@
+body{
+    margin: 0px;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-areas:
+    'header header header header'
+    'main main main main'
+    'footer footer footer footer';
+}
+h1,h2,h3,h4{
+    font-family: 'Big Shoulders Stencil Display', sans-serif;
+}
+p, a, li{
+    font-family: 'PT Serif', sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+}
+header{
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    height: 110px;
+    background-color: #fff;
+}
+header > div{
+    height: 90px;
+    flex-grow: 1;
+}
+header > div > a > img{
+    width: auto;
+    height: 100%;
+}
+header > nav > ul{
+    list-style: none;
+    display: flex;
+}
+header > nav > ul > li{
+    padding: 0px 10px;
+}
+header > nav > ul > li > a{
+    color: #000;
+}
+
+main{
+    grid-area: main;
+}
+.masthead{
+    height: 100vh;
+    background-image: url(../img/masthead.jpg);
+    background-size: cover;
+}
+.masthead > div{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.masthead > div > h1{
+    font-size: 46px;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+}
+.row-1{
+    display: grid;
+    grid-template-columns:50% 50%;
+    align-items: center;
+}
+.row-1 > div:first-child{
+    padding: 5%;
+}
+.row-1 > div > img{
+    width: 100%;
+    height: auto;
+}
+.row-2{
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    background-color: #0e0e0e;
+}
+.row-2 > div{
+    padding: 15px;
+    text-align: center;
+}
+.row-2 > div > figure{
+    padding: 0px;
+}
+.row-2 > div > figure > img{
+    width: 100%;
+    height: auto;
+}
+.row-2 > div > figure > figcaption{
+    color: #fff;
+    font-style: italic;
+    font-size: 16px;
+}
+.row-3, .row-4{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+}
+.row-3 > div:first-child{
+    padding: 5%;
+}
+.row-3 > div > video{
+    width: 100%;
+    height: auto;
+}
+.row-4 > div > img{
+    width: 100%;
+    height: auto;
+}
+.row-4 > div:nth-child(2){
+    padding: 5%;
+}
+footer{
+    grid-area: footer;
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    background-color: #0e0e0e;
+    padding: 5%;
+}
+footer > div:first-child{
+    display: flex;
+    align-items: center;
+}
+footer > div:first-child > a > img{
+    width: auto;
+    height: 100px;
+}
+footer > div > h4{
+    font-size: 28px;
+    color: #fff;
+    margin: 0px;
+}
+footer > div > ul{
+    padding-left: 0px;
+    list-style: none;
+}
+footer > div > ul > li > a{
+    color: #fff;
+}
+footer > div > form > p > input{
+    border: solid 2px #fff;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+}
+footer > div > form > input[type="submit"]{
+    background-color: #0e0e0e;
+    color: #fff;
+    border: solid 2px #fff;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 17px;
+    cursor: pointer;
+}
+::placeholder{
+    color: #0e0e0e;
+    font-weight: 400;
+    font-size: 17px;
+    font-family: 'PT Serif', sans-serif;
+}
+
+/* 
+    So now that our main styling is done now it is time to make this layout work on all the different devices. 
+    But just to get us started let's try out some diffetent media queries to add outlines to our elements just so we can see the way that they work!
+    In order to create a responsive design we will add our media queries below. You can add a media query anywhere you like in a CSS document 
+    however I normally add mine at the bottom of the document to make my CSS more orginized.
+    An important thing to remember is that CSS documents work from the top to the bottom and will overwrite the previous CSS rules that we create.
+    So with that in mind we will have our larger viewports at the top and work our way downn to the smaller viewports.
+
+    Websites should work on all breakpoints but there are the main breakpoints that we as developers must focus on and they are:
+    - 320px - 480px; Mobile devices
+    - 481px - 768px; Ipads, Tablets
+    - 769px - 1024px; Small screens, Laptops
+    - 1025px - 1200px; Desktops, Large screens
+    - 1200px and more; Extra Large screens, TV
+
+    We will start by adding an outline to these breakpoints
+ */
+
+
+@media screen and (min-width: 1026px) and (orientation: landscape) {
+    header{
+        background-color: #0e0e0e;
+    }
+    header > nav > ul > li > a{
+        color: #fff;
+    }
+}
+@media screen and (min-width: 769px) and (max-width: 1025px){
+    header{
+        background-color: #1b13c2;
+    }
+    header > nav > ul > li > a{
+        color: #fff;
+    }
+}
+
+@media screen and (max-width: 768px){
+    header{
+        background-color: #fff;
+    }
+    .row-1{
+        grid-template-columns: repeat(1, 100%);
+        grid-template-rows: auto;
+    }
+    .row-2 > div{
+        padding: 5px;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .row-2{
+        grid-template-columns: repeat(1, 100%);
+        grid-template-rows: auto;
+    }
+}
+
+@media screen and (min-width: 300px) and (max-width: 590px) {
+    header{
+        /* We displayed the header as a 'flex' and now we will use the 'flex-direction' to design the content as a column */
+        flex-direction: column;
+        /* 'column-reverse' will replace the div's order */
+        /* flex-direction: column-reverse; */
+        justify-content: center;
+        height: 150px;
+    }
+    header > nav > ul{
+        padding: 0px;
+    }
+    .row-3, .row-4{
+        grid-template-columns: repeat(1, 100%);
+        grid-template-rows: auto;
+      
+    }
+    .row-4 > div:nth-child(1){
+        order: 2;
+    }
+    .row-4 > div:nth-child(2){
+        order: 1;
+    }
+    footer{
+        grid-template-columns: repeat(1, 100%);
+        grid-template-rows: auto;
+    }
+    footer > div{
+        text-align: center;
+    }
+    footer > div:first-child{
+        justify-content: center;
+    }
+}
